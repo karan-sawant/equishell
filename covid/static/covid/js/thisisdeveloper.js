@@ -177,7 +177,10 @@ var app = new Vue({
             self = this;
             self.socket = io.connect("https://chat.equishell.com/");
             self.socket.on("answers", data=>{
-                data = JSON.parse(atob(data));
+                data = CryptoJS.RabbitLegacy.decrypt(data, self.key);
+                data = data.toString(CryptoJS.enc.Utf8);
+                data = JSON.parse(data);
+                console.log(data)
                 self.messages.push({
                     type: "bot",
                     message: data.answer
