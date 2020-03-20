@@ -175,7 +175,7 @@ var app = new Vue({
         },
         initiateSocket(){
             self = this;
-            self.socket = io.connect("http://192.168.1.123:8090/");
+            self.socket = io.connect("https://chat.equishell.com/");
             self.socket.on("answers", data=>{
                 data = JSON.parse(atob(data));
                 self.messages.push({
