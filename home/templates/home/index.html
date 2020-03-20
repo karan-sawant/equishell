@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load staticfiles %}
+    <title>Equishell - Patient Remote health monitoring system.</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161471023-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-161471023-1');
+    </script>
+
+    <link rel="stylesheet" href="{% static 'home/css/uikit.min.css' %}" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <link rel="stylesheet" href="{% static 'home/css/equishell.css' %}" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+</head>
+<body>
+    <nav class="uk-navbar-containerr uk-navbar-transparent" uk-navbar="mode: click">
+        <div class="uk-navbar-left uk-margin-medium-left">
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="#"><img src="{% static 'home/img/logo_color.png' %}" alt="Equishell" class="es-logo"></a></li>
+            </ul>
+        </div>
+        <div class="uk-navbar-right uk-margin-large-right">
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="#">HOME</a></li>
+                <li>
+                    <a href="#">Features</a>
+                    <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li class="uk-active"><a href="#">Live Updates</a></li>
+                            <li><a href="#">Easy Integration</a></li>
+                            <li><a href="#">24/7 Support</a></li>
+                            <li><a href="#">Remote Monitoring</a></li>
+                            <li><a href="#">Drtailed Analytics</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#" uk-toggle="target: #modal-contact">Contact us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="uk-container uk-container-large">
+        <div class="uk-flex-center" uk-grid>
+            <div class="uk-width-3-4@m es-home uk-text-center">
+                <h1 class="uk-margin-xlarge-top">Live & remote patient monitoring system, for personalised healthcare.</h1>
+                <p>An all in one tool for both <b>Hospitals</b> and <b>Individuals</b> to keep the live track of the health on there devices, analyse there medical status, send alert to the doctors and family members and many more.</p>
+                <button class="uk-button uk-button-secondary" uk-toggle="target: #modal-contact">REQUEST A DEMO</button> 
+                <!-- <a class="uk-margin-medium-left" href="#">View Features</a> -->
+            </div>
+        </div>
+    </div>
+    <div class="covid-dialog">
+        <p>We have developed a bot for fighting against COVID-19. Let spread awareness and fight this pandemic.</p>
+        <a href="{% url 'covid.index' %}" class="uk-button uk-button-primary">VISIT COVID-19 BOT</a>
+    </div>
+    <!-- This is the modal -->
+    <div id="modal-contact" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title">Contact Us</h2>
+            <p>For any queries related to our product write us at <a href="mailto:info@equishell.com">info@equishell.com</a>. We will be happy to hear from you.</p>
+            <p class="uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            </p>
+        </div>
+    </div>
+    <script src="{% static 'home/js/jquery.min.js' %}"></script>
+    <script src="{% static 'home/js/uikit.min.js' %}"></script>
+    <script src="{% static 'home/js/uikit-icons.min.js' %}"></script>
+</body>
+</html>

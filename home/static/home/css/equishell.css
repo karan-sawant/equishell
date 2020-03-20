@@ -1,0 +1,49 @@
+.es-logo{
+    height: 35px;
+}.es-home{
+    height: calc(100vh - 80px);
+    position: relative;
+}h1{
+    font-weight: 300;
+    text-transform: uppercase;
+}.es-home p{
+    padding: 0 5rem;
+    font-weight: 300;
+}.es-home a{
+    color: rgb(19, 29, 71);
+    text-decoration: underline;
+}.es-home a:hover{
+    color: rgb(30, 63, 194);
+}.es-home b{
+    color: rgb(19, 29, 71);
+    font-weight: 600;
+}.es-home .es-icon{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+}.es-icon.one{
+    left: 0%;
+    top: 10%;
+}.es-icon.two{
+    bottom: 20%;
+    right: 20%;
+}.es-icon.three{
+    left: 10%;
+    bottom: 40%;
+}.es-icon.four{
+    right: 0%;
+    top: 20%;
+}.covid-dialog{
+    position: fixed;
+    z-index: 99999;
+    bottom: 2rem;
+    right: 2rem;
+    width: 300px;
+    padding: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 1rem;
+    text-align: justify;
+}.covid-dialog a{
+    background: rgb(255, 220, 64) !important;
+    color: rgb(19, 29, 71);
+}

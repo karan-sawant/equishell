@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load staticfiles %}
+    <title>COVID 19 - Spread  Awareness</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161471023-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-161471023-1');
+    </script>
+    <link rel="stylesheet" href="{% static 'home/css/uikit.min.css' %}" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <link rel="stylesheet" href="{% static 'covid/css/equishell.css' %}" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+</head>
+<body>
+    <div class="uk-container uk-container-large" id="app-interface">
+        <div uk-grid>
+            <div class="uk-width-1-2@m explainer uk-visible@s">
+                <img class="logo-top" src="{% static 'home/img/logo_color.png' %}" alt="Equishell">
+                <img src="{% static 'covid/img/corona.jpg' %}" alt="COVID - 19" class="es-covid">
+                <div class="uk-position-relative uk-visible-toggle es-slider" tabindex="-1" uk-slideshow="animation: pull; autoplay: true; finite: false; autoplay-interval: 3000">
+                    <ul class="uk-slideshow-items">
+                        <!-- <li>
+                            <img src="{% static 'covid/img/symptoms.png' %}" width="1800" height="1200" alt="">
+                        </li> -->
+                        <li>
+                            <img src="{% static 'covid/img/prevention.png' %}" alt="">
+                        </li>
+                        <li>
+                            <img src="{% static 'covid/img/handwash.png' %}"  alt="">
+                        </li>
+                    </ul>
+                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+                </div>
+            </div>
+            <div class="uk-width-1-2@m chat-interface" v-if="socket!=''">
+                <div class="nav-top">
+                    <img src="{% static 'covid/img/covid_icon.png' %}" alt="COVID 19">
+                </div>
+                <div class="conv-element">
+                    <div class="message" v-for="msg in messages">
+                        <div v-html="msg.message" :class="msg.type"></div>
+                        <div v-if="msg.button">
+                            <button v-for="btn in msg.button.btns" v-on:click="regRecogBtn(msg.button.callback, btn.text)"><% btn.text %></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-element">
+                    <div class="uk-inline">
+                        <button class="uk-form-icon uk-form-icon-flip input-icon" :class="{ 'active' : voiceActive}" uk-icon="icon: microphone" v-if="input==''&&recognition!=''" v-on:click="recogVoice"></button>
+                        <button class="uk-form-icon uk-form-icon-flip input-icon" uk-icon="icon: play" v-if="input!=''||recognition==''" v-on:click="sendMessage"></button>
+                        <input type="text" class="uk-input" v-model="input" v-on:keyup.enter="sendMessage">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'home/js/jquery.min.js' %}"></script>
+    <script src="{% static 'home/js/uikit.min.js' %}"></script>
+    <script src="{% static 'home/js/uikit-icons.min.js' %}"></script>
+    <script src="{% static 'covid/js/crypto-js.min.js' %}"></script>
+    <script src="{% static 'covid/js/socket.io.js' %}"></script>
+    <script src="{% static 'covid/js/vue.min.js' %}"></script>
+    <script src="{% static 'covid/js/app.js' %}"></script>
+</body>
+</html>
